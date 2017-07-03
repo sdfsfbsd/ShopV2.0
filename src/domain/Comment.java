@@ -16,6 +16,7 @@ public class Comment implements java.io.Serializable {
 
 	/** default constructor */
 	public Comment() {
+		//
 	}
 
 	/** full constructor */
