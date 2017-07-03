@@ -19,6 +19,7 @@ public class Comment implements java.io.Serializable {
 		//
 		//
 		//wxy
+		//4 
 	}
 
 	/** full constructor */
