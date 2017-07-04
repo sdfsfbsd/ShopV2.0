@@ -1,11 +1,8 @@
 package action;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import javax.annotation.Resource;
 
+import com.opensymphony.xwork2.ActionContext;
 /**
  * µÇÂ½Action
  * @author ÑîÌÎ
@@ -60,29 +57,29 @@ public class LoginAction extends ActionSupport {
 		this.passWord = passWord;
 	}
 
-	@Override
-	public String execute() throws Exception {
+	public String login() throws Exception {
 		// TODO Auto-generated method stub
-
-		 List<User> list = new ArrayList<User>();
-		 list = userService.findAllUser();
-		//
-		 System.out.println("list:" + list.size());
-		System.out.println(userName);
-		// Iterator<User> iterator = list.iterator();
-		//
-		// while (iterator.hasNext()) {
-		// User user2 = (User) iterator.next();
-		// if
-		// (user2.getuserName().endsWith(userName)&&user2.getpassWord().endsWith(passWord)){
-		// return "success";
-		// }
-		// }
-		//
-		return "success";
+		
+		User user = userService.findUser(userName, passWord);
+		
+		if (user != null) {
+			ActionContext actionContext = ActionContext.getContext();
+			actionContext.getSession().put("User", user);
+			return SUCCESS;
+		} else {
+			return ERROR;
+		}
 
 	}
-
+	
+	public String logout() throws Exception {
+		
+		ActionContext actionContext = ActionContext.getContext();
+		actionContext.getSession().remove("User");
+		return SUCCESS;
+		
+	}
+	
 	public LoginAction() {
 		super();
 	}
