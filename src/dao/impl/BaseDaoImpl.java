@@ -1,15 +1,23 @@
 package dao.impl;
 
 import dao.IBaseDao;
+import hibernate.session.HibernateSessionFactory;
 
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 
 
 /**
@@ -22,7 +30,7 @@ import org.springframework.stereotype.Repository;
 @Repository("baseDAO")
 @SuppressWarnings("all")
 public class BaseDaoImpl<T> implements IBaseDao<T> {
-
+	
 	private SessionFactory sessionFactory;
 
 	public SessionFactory getSessionFactory() {
