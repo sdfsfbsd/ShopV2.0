@@ -15,6 +15,13 @@ import domain.User;
 
 public interface IUserService {
 	public User findUser(String userName, String password);
-
+	public User findUser(String userName);
+	public boolean insertUser(User user);
+	public List<User> searchUser(String choose);
+	public boolean deleteUser(String id);
+	public boolean addUser(User user);
+	public boolean updateUser(User user);	
+	public List findPage(Map param,Integer page,Integer rows);
+	public Long count(Map param );
 	public List<User> findAllUser();
 }

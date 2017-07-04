@@ -38,5 +38,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/下载/mysql-connector-java-5.1.41/mysql-connector-java-5.1.41-bin.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_work/MyEclipse/ShopV2.0/WebRoot/WEB-INF/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_work/MyEclipse/ShopV2.0/WebRoot/WEB-INF/lib/commons-logging-1.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/JAVA_work/MyEclipse/ShopV2.0/WebRoot/WEB-INF/lib/dwr.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

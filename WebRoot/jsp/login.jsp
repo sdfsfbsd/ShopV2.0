@@ -7,7 +7,10 @@
 <meta name="keywords" content="keyword1,keyword2,keyword3">
 <meta name="description" content="this is my page">
 <meta name="content-type" content="text/html; charset=UTF-8">
-
+<!-- 		插入外部样式表，使用DwrUtil -->
+<script type="text/javascript" src="./dwr/util.js"></script>
+<script type="text/javascript" src="./dwr/engine.js"></script>
+<script type="text/javascript" src="./dwr/interface/dwrUtil.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -27,7 +30,7 @@
 	crossorigin="anonymous"></script>
 <style type="text/css">
 body {
-/* 	<!-- !>background-image: url(2.jpg); */
+	/* 	<!-- !>background-image: url(2.jpg); */
 	background-color: #000000;
 }
 
@@ -46,6 +49,8 @@ body {
 <script type="text/javascript">
 
 	function loginCheck() {
+		var errerMeg = document.getElementById("ErrorMsg");
+		errerMeg.style.display = "none";
 		var username = document.getElementById("exampleInputUserName");
 		var password = document.getElementById("exampleInputPassword");
 		if (username.value == "") {
@@ -57,6 +62,25 @@ body {
 			document.getElementById('PassWordMsg').style.display = "block";
 		} else {
 			document.getElementById('PassWordMsg').style.display = "none";
+		}
+	}
+
+	function login() {
+		var loginUserName = document.getElementById("exampleInputUserName");
+		var loginPassWord = document.getElementById("exampleInputPassword");
+		alert("开始调用dwr进行登录校验");
+		/* 下面一行实际上是没有意义的 */
+		dwrUtil.loginCheck(loginUserName.value, loginPassWord.value, callback);
+		function callback(result) {
+			if (result == "1") {
+				//alert("登入成功！");
+				document.getElementById("loginForm").submit();
+			} else {
+				//alert("用户名或密码错误请重新输入！");
+				var errerMeg = document.getElementById("ErrorMsg");
+				errerMeg.style.display = "block";
+			//$("#msg").html("用户名或密码错误，请重新输入！");
+			}
 		}
 	}
 </script>
@@ -83,7 +107,9 @@ body {
 					<div class="col-md-2 column "></div>
 					<div class="col-md-3 column"
 						style="background-color:rgba(255, 255, 255, 0.8);border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;">
-						<form id="loginForm" name="loginForm" action="${pageContext.request.contextPath}/loginAction.do" method="post">
+						<form id="loginForm" name="loginForm"
+							action="${pageContext.request.contextPath}/loginAction.do"
+							method="post">
 							<div class="form-group">
 								<a class="btn" href="" style="color: white"></a>
 							</div>
@@ -105,18 +131,22 @@ body {
 							<div class="form-group" id="PassWordMsg" style="display:none;">
 								<label class="text" style="color: red"> 密码不能为空！ </label>
 							</div>
+							<div class="form-group" id="ErrorMsg" style="display:none;">
+								<label class="text" style="color: red"> 用户名或密码错误！请重新输入！
+								</label>
+							</div>
 
 							<div class="checkbox">
 								<label><input type="checkbox" />记住密码</label>
 							</div>
 							<div class="row clearfix">
 								<div class="col-md-6 column ">
-									<a onclick="document.getElementById('loginForm').submit();"
-										class="btn btn-info btn-block" href="javascript:"
-										style="color: black;">登陆</a>
+									<a onclick="login()" class="btn btn-info btn-block"
+										href="javascript:" style="color: black;">登录</a>
 								</div>
+								<!-- "document.getElementById('loginForm').submit();" -->
 								<div class="col-md-6 column ">
-									<a class="btn btn-info btn-block" href="signup.jsp"
+									<a class="btn btn-info btn-block" href="jsp/signup.jsp"
 										style="color: black;">注册</a>
 								</div>
 							</div>

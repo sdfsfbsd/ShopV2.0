@@ -61,7 +61,6 @@ public class LoginAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		
 		User user = userService.findUser(userName, passWord);
-		
 		if (user != null) {
 			ActionContext actionContext = ActionContext.getContext();
 			actionContext.getSession().put("User", user);
