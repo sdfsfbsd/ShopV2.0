@@ -1,5 +1,8 @@
 package action;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.annotation.Resource;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -12,6 +15,8 @@ import com.opensymphony.xwork2.ActionContext;
  */
 import com.opensymphony.xwork2.ActionSupport;
 
+import domain.Commodity;
+import domain.Order;
 import domain.User;
 import service.IUserService;
 

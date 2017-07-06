@@ -5,16 +5,19 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
- 
+ 	<!-- bean 配置 -->
 	
 	<bean id="LoginAction" scope="prototype" class="action.LoginAction" />
 	
 	<bean id="LogoutAction" scope="prototype" class="action.LoginAction" />	
 	
+	<bean id="ShowItemAction" scope="prototype" class="action.ShowitemAction"/>
+	
 	<bean id="dwrUtil"
 		class="util.DwrUtil"
 		scope="prototype" />
 	
+	<bean id="ChangeInfoAction" scope="prototype" class="action.ChangeInfoAction" />	
 	<!-- 自动扫描Spring注解配置 -->
 	<context:component-scan base-package="service" />
 	<context:component-scan base-package="dao" />

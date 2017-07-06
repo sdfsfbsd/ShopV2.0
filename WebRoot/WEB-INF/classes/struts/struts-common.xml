@@ -12,5 +12,15 @@
 			<result name="error">jsp/signup.jsp</result>
 		</action>
 		
+		<action name="changeInfoAction" method="changeInfo" class="ChangeInfoAction">
+			<result name="success">jsp/personalData.jsp</result>
+			<result name="error">jsp/signup.jsp</result>
+		</action>
+		
+		<action name="changePasswordAction" method="changePassword" class="ChangeInfoAction">
+			<result name="success">jsp/personalData.jsp</result>
+			<result name="error">jsp/signup.jsp</result>
+		</action>
+		
 	</package>
 </struts>    

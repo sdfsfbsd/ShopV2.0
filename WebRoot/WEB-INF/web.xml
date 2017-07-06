@@ -22,7 +22,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
-	
+
 	<!-- 配置Session -->
 	<filter>
 		<filter-name>openSession</filter-name>
@@ -32,9 +32,12 @@
 		<filter-name>openSession</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+	<filter-mapping> 
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<!-- drw配置 -->
-	<servlet> 
+	<servlet>
 		<servlet-name>dwr-invoker</servlet-name>
 		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
 		<init-param>
@@ -51,4 +54,6 @@
 		<servlet-name>dwr-invoker</servlet-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
+
+
 </web-app> 

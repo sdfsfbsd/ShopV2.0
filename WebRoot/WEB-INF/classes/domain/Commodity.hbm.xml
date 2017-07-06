@@ -33,6 +33,9 @@
         <property name="type" type="java.lang.String">
             <column name="type" length="45" not-null="true" />
         </property>
+        <property name="isSold" type="java.lang.Boolean">
+            <column name="isSold" not-null="true" />
+        </property>
         <set name="orders" inverse="true">
             <key>
                 <column name="commodity_idcommodity" not-null="true" />

@@ -1,7 +1,6 @@
 package dao.impl;
 
 import dao.IBaseDao;
-import hibernate.session.HibernateSessionFactory;
 
 import java.io.Serializable;
 import java.util.List;

@@ -32,7 +32,7 @@
 	crossorigin="anonymous"></script>
 <style type="text/css">
 body {
-	background-image: url(2.jpg);
+	background-image: url(${pageContext.request.contextPath}/jpg/2.jpg);
 	background-color: #000000;
 }
 
@@ -49,7 +49,7 @@ body {
 
   -->
   
-<body style="background-image: '‪2.jpg'">
+<body>
 	<div class="container">
 		<div class="center-block">
 			<h2 style="text-align:center;color:white;font-size: 55px">BUKE</h2>

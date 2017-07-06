@@ -1,57 +1,68 @@
 package domain;
 
+
+
 /**
  * Comment entity. @author MyEclipse Persistence Tools
  */
 
-public class Comment implements java.io.Serializable {
+public class Comment  implements java.io.Serializable {
 
-	// Fields
 
-	private CommentId id;
-	private String content;
-	private String commentType;
+    // Fields    
 
-	// Constructors
+     private CommentId id;
+     private String content;
+     private String commentType;
 
-	/** default constructor */
-	public Comment() {
-		//
-		//
-		//wxy
-	}
 
-	/** full constructor */
-	public Comment(CommentId id, String content, String commentType) {
-		this.id = id;
-		this.content = content;
-		this.commentType = commentType;
-	}
+    // Constructors
 
-	// Property accessors
+    /** default constructor */
+    public Comment() {
+    }
 
-	public CommentId getId() {
-		return this.id;
-	}
+    
+    /** full constructor */
+    public Comment(CommentId id, String content, String commentType) {
+        this.id = id;
+        this.content = content;
+        this.commentType = commentType;
+    }
 
-	public void setId(CommentId id) {
-		this.id = id;
-	}
+   
+    // Property accessors
 
-	public String getContent() {
-		return this.content;
-	}
+    public CommentId getId() {
+        return this.id;
+    }
+    
+    public void setId(CommentId id) {
+        this.id = id;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+        return this.content;
+    }
+    
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public String getCommentType() {
-		return this.commentType;
-	}
+    public String getCommentType() {
+        return this.commentType;
+    }
+    
+    public void setCommentType(String commentType) {
+        this.commentType = commentType;
+    }
+   
 
-	public void setCommentType(String commentType) {
-		this.commentType = commentType;
-	}
+
+
+
+
+
+
 
 }

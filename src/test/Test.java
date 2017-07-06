@@ -8,7 +8,6 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import domain.User;
-import hibernate.session.HibernateSessionFactory;
 class HibernateUtils {
 	private static Configuration configuration;
 	private static SessionFactory sessionFactory;

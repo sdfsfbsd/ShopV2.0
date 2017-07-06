@@ -30,7 +30,7 @@
 	crossorigin="anonymous"></script>
 <style type="text/css">
 body {
-	/* 	<!-- !>background-image: url(2.jpg); */
+	background-image: url(jpg/2.jpg);
 	background-color: #000000;
 }
 
@@ -68,7 +68,7 @@ body {
 	function login() {
 		var loginUserName = document.getElementById("exampleInputUserName");
 		var loginPassWord = document.getElementById("exampleInputPassword");
-		alert("开始调用dwr进行登录校验");
+		//alert("开始调用dwr进行登录校验");
 		/* 下面一行实际上是没有意义的 */
 		dwrUtil.loginCheck(loginUserName.value, loginPassWord.value, callback);
 		function callback(result) {
@@ -84,21 +84,23 @@ body {
 		}
 	}
 </script>
-<body style="background-image: '‪2.jpg'">
+<body>
 	<div class="container">
 		<div class="row clearfix "
 			style=" position:absolute;  top:30%;   margin:-100px 0 0 -150px ;padding-right: 60px;padding-left: 30px">
 			<div class="col-md-12 column ">
 				<div class="row clearfix">
-					<div class="col-md-12 column" style="margin-bottom: 40px">
-						<h2 style="text-align:center;color:white;font-size: 55px">BUKE</h2>
+				<div class="col-md-4 column "></div>
+					<div class="col-md-4 column" style="margin-bottom: 40px">
+						<h2 style="color:white;font-size: 55px">猜吧</h2>
 					</div>
+					<div class="col-md-4 column "></div>
 				</div>
 
 				<div class="row clearfix">
 					<div class="col-md-6 column ">
 						<h1 style="color: white">关于我们</h1>
-						<p style="font-size: 22px;color: white">BUKE是全球知名的综合性网上购物商城，由国内著名出版机构科文公司、
+						<p style="font-size: 22px;color: white">猜吧是全球知名的综合性网上二手物品猜卖交易平台，由国内著名机构科文公司、
 							美国MMO基金、美国IER集团、卢森堡BIR集团、天使创业投资基金共同投资成立。</p>
 						<p>
 							<a class="btn" href="#" style="color: white;">View details »</a>

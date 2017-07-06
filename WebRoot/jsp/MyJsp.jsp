@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -36,11 +36,44 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-</head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
+body {
+	font-size: 18px;
+	text-align: center;
+}
+
+.time {
+	height: 30px;
+	padding: 200px;
+}
+</style>
+</head>
 <body>
- <div>
-<h1 class="btn btn-success btn-large"><i class="icon-user icon-white"></i>Hello,World</h1>
-</div>
+	<div class="time">
+		<span id="t_d">00天</span> <span id="t_h">00时</span> <span id="t_m">00分</span>
+		<span id="t_s">00秒</span>
+		<input type="text"/>hhhh
+		<form action="" >
+		<input type="file"/>
+		</form>
+	</div>
+	<script>
+		 var day = 100;
+		function GetRTime() {
+	
+			document.getElementById("t_d").innerHTML = day + "天";
+ 			
+ 			day--;
+			
+		}
+		setInterval(GetRTime, 1000);
+	</script>
+
 </body>
 </html>
