@@ -30,7 +30,7 @@
 	crossorigin="anonymous"></script>
 <style type="text/css">
 body {
-	background-image: url(jpg/2.jpg);
+	background-image: url(${pageContext.request.contextPath}/jpg/2.jpg);
 	background-color: #000000;
 }
 

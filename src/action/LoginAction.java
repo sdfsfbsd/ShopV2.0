@@ -66,7 +66,10 @@ public class LoginAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		
 		User user = userService.findUser(userName, passWord);
+		
 		if (user != null) {
+			System.out.println("size :" +user.getShops().size());
+			System.out.println("size2 :" +user.getOrders().size());
 			ActionContext actionContext = ActionContext.getContext();
 			actionContext.getSession().put("User", user);
 			return SUCCESS;
@@ -83,6 +86,7 @@ public class LoginAction extends ActionSupport {
 		return SUCCESS;
 		
 	}
+	
 	
 	public LoginAction() {
 		super();

@@ -126,15 +126,15 @@ body {
 										value="#session.User.getUsername()" /><strong class="caret"></strong>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a href="personalData.jsp">我的信息</a></li>
+									<li><a href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
 									<li class="divider"></li>
-									<li><a href="myGuess.jsp">我的竞猜</a></li>
+									<li><a href="${pageContext.request.contextPath}/getShopsAction.do">我的竞猜</a></li>
 								</ul></li>
 							<li><a
 								href="${pageContext.request.contextPath}/logoutAction.do">注销</a></li>
 						</s:if>
 						<s:else>
-							<li><a href="login.jsp">登录</a></li>
+							<li><a href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></li>
 						</s:else>
 					</ul>
 				</div>
@@ -154,8 +154,8 @@ body {
 				<div class="btn1-distane"></div>
 			</div>
 			<div class="col-md-1 column "></div>
-			<div class="col-md-6 column enjoy-css"
-				style="padding-bottom: 15px;padding-top: 15px;height: 300px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+			<div class="col-md-8 column enjoy-css"
+				style="background-color:white;padding-bottom: 15px;padding-top: 15px;height: 300px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
 
 				<div class="col-md-12 column">
 					<div class="tabbable" id="tabs-458838">

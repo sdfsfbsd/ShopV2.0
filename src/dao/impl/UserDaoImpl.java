@@ -99,7 +99,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao {
 	@Override
 	public boolean insertUser(User user) {
 		try {
-
 			super.save(user);
 		} catch (Exception e) {
 			e.printStackTrace();

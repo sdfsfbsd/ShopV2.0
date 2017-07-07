@@ -6,21 +6,38 @@
 			<result name="success">jsp/mainPage.jsp</result>
 			<result name="error">jsp/signup.jsp</result>
 		</action>
-		
+
 		<action name="logoutAction" method="logout" class="LoginAction">
 			<result name="success">jsp/login.jsp</result>
 			<result name="error">jsp/signup.jsp</result>
 		</action>
-		
+
+		<action name="signupAction" method="signup" class="SignupAction">
+			<result name="success">jsp/login.jsp</result>
+			<result name="error">jsp/signup.jsp</result>
+		</action>
+
 		<action name="changeInfoAction" method="changeInfo" class="ChangeInfoAction">
 			<result name="success">jsp/personalData.jsp</result>
 			<result name="error">jsp/signup.jsp</result>
 		</action>
-		
-		<action name="changePasswordAction" method="changePassword" class="ChangeInfoAction">
+
+		<action name="changePasswordAction" method="changePassword"
+			class="ChangeInfoAction">
 			<result name="success">jsp/personalData.jsp</result>
 			<result name="error">jsp/signup.jsp</result>
 		</action>
-		
+
+		<action name="getShopsAction" method="myGuess" class="ShopAction">
+			<result name="success">jsp/myGuess.jsp</result>
+			<result name="error">jsp/signup.jsp</result>
+		</action>
+
+		<action name="newCommodyAction" method="newCommody" class="ShopAction">
+			<result name="success">jsp/myGuess.jsp</result>
+			<result name="error">jsp/signup.jsp</result>
+		</action>
+
+
 	</package>
 </struts>    

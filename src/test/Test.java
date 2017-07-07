@@ -1,5 +1,8 @@
 package test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -25,18 +28,19 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		Session session = HibernateSessionFactory.getSession();
-//		org.hibernate.Transaction transaction = session.beginTransaction();
-		Session session = HibernateUtils.openSession();
-		Transaction transaction = session.beginTransaction();
-		User loginUser = (User) session.createQuery("from User where username=admin");
-	 
-		String sql = "select * from user where username=\"" + "admin"+ "\"";
-		@SuppressWarnings("unchecked")
-		List<User>list = session.createSQLQuery(sql).addEntity(User.class).list();
-		System.out.println(loginUser.getPassword());
-		transaction.commit();
-		session.close();
+		String tString = "2017-01-11 09:50";
+		tString+= ":00";
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(tString);
+		try {
+			Date date = sdf.parse(tString);
+			
+			System.out.println(date.toLocaleString());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

@@ -79,7 +79,7 @@ body {
 									<ul class="dropdown-menu">
 										<li><a href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
 										<li class="divider"></li>
-										<li><a href="${pageContext.request.contextPath}/jsp/myGuess.jsp">我的竞猜</a></li>
+										<li><a href="${pageContext.request.contextPath}/getShopsAction.do">我的竞猜</a></li>
 										<li class="divider"></li>
 										<li><a href="myshop.jsp">我的订单</a></li>
 									</ul></li>
@@ -90,7 +90,7 @@ body {
 
 
 							<s:else>
-								<li><a href="login.jsp">登录</a></li>
+								<li><a href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></li>
 							</s:else>
 						</ul>
 					</div>

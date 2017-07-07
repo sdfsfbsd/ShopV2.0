@@ -24,14 +24,26 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-<script type="text/javascript">
 
+<script type="text/javascript">
+	function signupCheck() {
+		var p1 = document.getElementById("p1");
+		var p2 = document.getElementById("p2");
+		if (p1.value==p2.value){
+			document.getElementById('signupForm').submit();
+			alert("注册成功！");
+		}
+		else{
+			alert("密码不一致，请重新输入");
+		}
+	}
 </script>
 <style type="text/css">
 body {
@@ -51,7 +63,7 @@ body {
 <!--<body style="background-image:;background-position:center; background-repeat:repeat-y">
 
   -->
-  
+
 <body>
 	<div class="container">
 		<div class="center-block">
@@ -60,30 +72,31 @@ body {
 				<div class="row">
 					<div class="center-block"
 						style="width:300px;padding-left:10px; padding-right:10px;padding-top:20px;padding-bottom:10px; background-color:rgba(255, 255, 255, 0.8);border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;">
-						<form role="form" id="signUpForm" method="post" action="signup">
+						<form role="form" id="signupForm" method="post" action="${pageContext.request.contextPath}/signupAction.do">
 
 							<div class="form-group">
-								<label for="exampleInputEmail1 ">用户名</label><input type="email"
+								<label for="exampleInputEmail1 ">用户名</label><input type="text"
 									class="form-control" name="userName" />
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">邮箱</label><input
-									type="password" class="form-control" name="eMail" />
+									type="text" class="form-control" name="email"/>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">密码</label><input
-									type="password" class="form-control" name="passWord" />
+									type="password" class="form-control" name="passWord" id="p1" />
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">再次确认密码</label><input
-									type="password" class="form-control" name="passWordConfirmed" />
+									type="password" class="form-control" name="passWordConfirmed"
+									id="p2" />
 							</div>
 							<div class="row clearfix">
 								<div class="col-md-4 column "></div>
 								<div class="col-md-4 column ">
 									<a class="btn btn-info btn-block" href="javascript:"
 										style="color: black;"
-										onclick="document.getElementById('signUpForm').submit();">注册</a>
+										onclick="signupCheck()">注册</a>
 								</div>
 								<div class="col-md-4 column "></div>
 							</div>
