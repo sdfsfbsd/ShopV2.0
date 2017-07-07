@@ -1,6 +1,6 @@
 package domain;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,7 +20,7 @@ public class Commodity implements java.io.Serializable {
 	private String commPicUrl;
 	private String type;
 	private Boolean isSold;
-	private Date expireTime;
+	private Timestamp expireTime;
 	private Set orders = new HashSet(0);
 
 	// Constructors
@@ -43,7 +43,7 @@ public class Commodity implements java.io.Serializable {
 
 	/** full constructor */
 	public Commodity(CommodityId id, String commName, String commPrice, String commNumber, String commDescription,
-			String commPicUrl, String type, Boolean isSold, Date expireTime, Set orders) {
+			String commPicUrl, String type, Boolean isSold, Timestamp expireTime, Set orders) {
 		this.id = id;
 		this.commName = commName;
 		this.commPrice = commPrice;
@@ -122,11 +122,11 @@ public class Commodity implements java.io.Serializable {
 		this.isSold = isSold;
 	}
 
-	public Date getExpireTime() {
+	public Timestamp getExpireTime() {
 		return this.expireTime;
 	}
 
-	public void setExpireTime(Date expireTime) {
+	public void setExpireTime(Timestamp expireTime) {
 		this.expireTime = expireTime;
 	}
 

@@ -95,7 +95,7 @@ public class SignupAction extends ActionSupport {
 
 	public String signup() throws Exception {
 		try {
-			String picUrl = "D:\\JAVA_work\\MyEclipse\\ShopV2.0\\WebRoot\\jpg";
+			String picUrl = "touxiang.jpg";
 			String phone = "123123";
 			System.out.println(userName + passWord + email);
 			User user = new User(userName, passWord, email, phone, 100, picUrl);
@@ -104,11 +104,7 @@ public class SignupAction extends ActionSupport {
 			int ShopID = Integer.parseInt(buffer.substring(6, 12)) * (new Date().getMinutes());
 			ShopId shopId = new ShopId(ShopID, user);
 			Shop shop = new Shop(shopId);
-//			Set<Shop> shops = new HashSet<Shop>();
-//			shops.add(shop);
-//			user.setShops(shops);
-//			ShopDAO shopDAO = new ShopDAO();
-//			shopDAO.save(shop);
+			
 			userService.addUser(user);
 			shopService.addShop(shop);
 			return SUCCESS;

@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -12,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Commodity;
 import domain.CommodityId;
+import domain.Order;
 import domain.Shop;
 import domain.User;
 import service.ICommodityService;
@@ -187,6 +189,32 @@ public class ShopAction extends ActionSupport {
 
 	}
 
+	
+	public String findOrder() {
+		try {
+			ActionContext actionContext = ActionContext.getContext();
+			
+			User sessioUser = (User) actionContext.getSession().get("User");
+			
+			User user = userService.findUser(sessioUser.getUsername(), sessioUser.getPassword());
+			
+			Set<Order> orders = user.getOrders();
+			
+			Order order = new Order();
+
+			System.out.println("orders size:" + orders.size());
+			
+			actionContext.getSession().put("UserOrder", orders);
+			
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return ERROR;
+		}
+		
+	}
+	
 	public String newCommody() {
 		try {
 			ActionContext actionContext = ActionContext.getContext();
@@ -222,11 +250,10 @@ public class ShopAction extends ActionSupport {
 			
 			time+=":00";
 			System.out.println("time is:" + time);
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			
-			Date expireDate = sdf.parse(time);
+			Timestamp ts = new Timestamp(System.currentTimeMillis()); 
 			
-			commodity.setExpireTime(expireDate);
+			commodity.setExpireTime(Timestamp.valueOf(time));
 			
 			commodityService.addCommodity(commodity);
 			
@@ -234,19 +261,7 @@ public class ShopAction extends ActionSupport {
 			
 			actionContext.getSession().put("Commodities", commodities1);
 			
-			//ÖØÐÂË¢ÐÂcommodity Set
-//			User user2 = userService.findUser(sessioUser.getUsername(), sessioUser.getPassword());
-//			Shop shop2 = new Shop();
-//			Set<Shop> shops2 = user2.getShops();
-//			Iterator<Shop> iterator2 = shops2.iterator();
-//			while (iterator2.hasNext()) {
-//				shop2 = (Shop) iterator2.next();
-//			}
-//			System.out.println(shop2.getId().getIdshop());
-//			Set<Commodity> commodities2 = shop2.getCommodities();
-//			System.out.println("new commodities size is:" + commodities2.size());
-//			actionContext.getSession().put("Commodities", commodities2);
-//			
+
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception

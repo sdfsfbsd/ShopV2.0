@@ -18,8 +18,10 @@
 	<bean id="dwrUtil"
 		class="util.DwrUtil"
 		scope="prototype" />
-	
+	<!-- 改变个人基本资料 -->
 	<bean id="ChangeInfoAction" scope="prototype" class="action.ChangeInfoAction" />	
+	<!-- 改变个人头像 -->
+	<bean id="ChangePicAction" scope="prototype" class="action.ChangeInfoAction" />
 	<!-- 自动扫描Spring注解配置 -->
 	<context:component-scan base-package="service" />
 	<context:component-scan base-package="dao" />

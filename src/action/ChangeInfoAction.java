@@ -14,6 +14,26 @@ public class ChangeInfoAction extends ActionSupport {
 	private String email;
 	private String phone;
 	private String newPassword;
+	private String picUrl;
+
+	public String getPicUrl() {
+		return picUrl;
+	}
+
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
+
+	public ChangeInfoAction(String userName, String email, String phone, String newPassword, String picUrl,
+			IUserService userService) {
+		super();
+		this.userName = userName;
+		this.email = email;
+		this.phone = phone;
+		this.newPassword = newPassword;
+		this.picUrl = picUrl;
+		this.userService = userService;
+	}
 
 	public ChangeInfoAction(String userName, String email, String phone, String newPassword, IUserService userService) {
 		super();
@@ -101,15 +121,37 @@ public class ChangeInfoAction extends ActionSupport {
 			ActionContext actionContext = ActionContext.getContext();
 
 			User sessionUser = (User) actionContext.getSession().get("User");
-			
+
 			sessionUser.setPassword(newPassword);
-			
+
 			actionContext.getSession().put("User", sessionUser);
 			System.out.println(newPassword);
-			
+
 			userService.updateUser(sessionUser);
-			
+
 			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+	
+	public String changePic() {
+		try {
+			ActionContext actionContext = ActionContext.getContext();
+
+			User sessionUser = (User) actionContext.getSession().get("User");
+
+			sessionUser.setPicUrl(picUrl);
+
+			actionContext.getSession().put("User", sessionUser);
+			System.out.println(picUrl);
+
+			userService.updateUser(sessionUser);
+
+			return SUCCESS;
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

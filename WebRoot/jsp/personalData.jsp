@@ -17,9 +17,12 @@
 <meta name="content-type" content="text/html; charset=UTF-8">
 
 <!-- 		插入外部样式表，使用DwrUtil -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/dwr/util.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/dwr/engine.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/dwr/interface/dwrUtil.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/dwr/util.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/dwr/engine.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/dwr/interface/dwrUtil.js"></script>
 
 <script
 	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -55,6 +58,13 @@
 				alert("旧密码错误,请重新输入！");
 			}
 		}
+	}
+	function picChange() {
+		var pic = document.getElementById("pic");
+		var picUrl = document.getElementById("picUrl");
+		var strs = new Array();
+		strs = picUrl.value.split("\\");
+		pic.src = "${pageContext.request.contextPath}/jpg/" + strs[strs.length - 1];
 	}
 </script>
 <style>
@@ -126,15 +136,18 @@ body {
 										value="#session.User.getUsername()" /><strong class="caret"></strong>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
+									<li><a
+										href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/getShopsAction.do">我的竞猜</a></li>
+									<li><a
+										href="${pageContext.request.contextPath}/getShopsAction.do">我的竞猜</a></li>
 								</ul></li>
 							<li><a
 								href="${pageContext.request.contextPath}/logoutAction.do">注销</a></li>
 						</s:if>
 						<s:else>
-							<li><a href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></li>
 						</s:else>
 					</ul>
 				</div>
@@ -148,14 +161,16 @@ body {
 
 
 				<div class="border1">
-					<img alt="140x140" src="touxiang.jpg" height="220" width="200" />
+					<img alt="140x140"
+						src="${pageContext.request.contextPath}/jpg/<s:property value="#session.User.getPicUrl()" />"
+						height="220" width="200" />
 				</div>
 
 				<div class="btn1-distane"></div>
 			</div>
 			<div class="col-md-1 column "></div>
 			<div class="col-md-8 column enjoy-css"
-				style="background-color:white;padding-bottom: 15px;padding-top: 15px;height: 300px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+				style="background-color:white;padding-bottom: 15px;padding-top: 15px;height: 450px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
 
 				<div class="col-md-12 column">
 					<div class="tabbable" id="tabs-458838">
@@ -224,7 +239,29 @@ body {
 								</form>
 							</div>
 							<div class="tab-pane " id="panel-896075">
-								<p>Howdy, I'm in Section 3.</p>
+								<form
+									action="${pageContext.request.contextPath}/changePicAction.do"
+									id="picUrlForm" method="post">
+									<p>选择新头像</p>
+									<div class="col-md-12 column" style="padding-bottom: 10px">
+										<div class="col-md-4 column">
+											<label for="pic" class="text-info">上传照片</label> <img id="pic"
+												alt="140x140" src="" height="220" width="200" />
+										</div>
+										<div class="col-md-8 column">
+											<div class="col-sm-9">
+												<input type="file" class="form-control" id="picUrl"
+													name="picUrl" onchange="picChange()" />
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 column " style="">
+										<div class="col-xs-6 col-md-offset-4">
+											<a onclick="document.getElementById('picUrlForm').submit()" role="button"
+												class="btn btn-info btn-xs">保存</a>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
