@@ -15,6 +15,8 @@
 	<!-- 显示已发布竞猜 -->
 	<bean id="ShopAction" scope="prototype" class="action.ShopAction"/>
 	
+	<bean id="OrderAction" scope="prototype" class="action.OrderAction"/>
+	<bean id="TypeAction" scope="prototype" class="action.TypeAction"/>
 	<bean id="dwrUtil"
 		class="util.DwrUtil"
 		scope="prototype" />
@@ -29,7 +31,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="url" value="jdbc:mysql://localhost:3306/shop"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="password" value="1234"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 	</bean>
 	<bean id="sessionFactory"

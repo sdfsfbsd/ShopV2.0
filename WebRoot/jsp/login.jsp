@@ -125,7 +125,8 @@ body {
 							</div>
 
 							<div class="form-group">
-								<label for="exampleInputPassword">密码</label><input
+								<label for="exampleInputPassword">密码</label>
+								<input
 									type="password" onBlur="loginCheck();" class="form-control"
 									id="exampleInputPassword" name="passWord" />
 							</div>
