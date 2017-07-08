@@ -37,12 +37,12 @@ public class ShowitemAction  extends ActionSupport {
 		this.idcommodity = idcommodity;
 	}
 	
-	@Override
-	public String execute() throws Exception {
+	
+	public String Showitem() throws Exception {
 		// TODO Auto-generated method stu
 		Commodity c =new Commodity();
 		c = showitemService.findCommodityById(idcommodity);
-		System.out.println("Name:" + c.getCommName());
+		//System.out.println("Name:" + c.getCommName());
 		System.out.println(idcommodity);
 		return "success";
 	}

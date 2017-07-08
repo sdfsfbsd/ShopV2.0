@@ -181,10 +181,10 @@ body {
 								<div class="item active" align="center">
 									<img alt="" src="${pageContext.request.contextPath}/jpg/baiyexing.jpg" style="height: 230px"/>
 									<div class="carousel-caption">
-										<h4 style="color: white;">罗尼</h4>
-										<p style="color: white;">英国国家图书奖作品，斯蒂芬.金盛赞推荐，被称为当代经典的传奇处女作</p>
-										<form action="getIteminfo"="post">
-											<input type="hidden" name="itemId" value="1" /> <input
+										<h4>香蕉</h4>
+										<p>使人身心愉悦</p>
+										<form action="${pageContext.request.contextPath}/showItemAction.do" method="post">
+											<input type="hidden" name="idcommodity" value="1" /> <input
 												type="submit" class="btn btn-default" value="点击前往" />
 										</form>
 									</div>

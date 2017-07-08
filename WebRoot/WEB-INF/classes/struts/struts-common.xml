@@ -57,7 +57,10 @@
 			<result name="success">jsp/classify.jsp</result>
 			<result name="error">jsp/classify.jsp</result>
 		</action>
-		
+		<action name="showItemAction" method="Showitem" class="ShowItemAction">
+		    <result name="success">jsp/ItemDes.jsp</result>
+            <result name="error">jsp/signup.jsp</result>
+        </action>
 		
 	</package>
 </struts>    

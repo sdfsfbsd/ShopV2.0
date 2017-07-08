@@ -181,23 +181,6 @@ body {
 									</a>
 									
 									
-									<%-- <s:iterator value="#session.UserOrder" id="order">
-										<form id="orderForm<s:property value="#order.getCommodity().getCommName()" />" name="orderForm"
-										 action="${pageContext.request.contextPath}/orderAction.do?name=<s:property 
-										 value="#order.getCommodity().getCommName()"/>" method="post">
-											 <a onclick="document.getElementById('orderForm<s:property value="#order.getCommodity().getCommName()" />').submit();"
-											  href="" class="list-group-item">
-												<h4 class="list-group-item-heading">
-													<s:property value="#order.getCommodity().getCommName()" />
-												</h4>
-												<p class="list-group-item-text">
-													销售日期：
-													<s:property value="#order.getPurchaseTime()" />
-												</p> <img alt="140x140" height="220" width="200"
-												src="${pageContext.request.contextPath}/jpg/<s:property value="#order.getCommodity().getCommPicUrl()" />">
-											</a> 
-										</form> 
-									</s:iterator> --%>
 										<s:iterator value="#session.UserOrder" id="order">
 											<form id="orderForm<s:property value="#order.getId().getIdorder()"/>"
 											action="${pageContext.request.contextPath}/orderAction.do" method="post"/>
@@ -219,26 +202,6 @@ body {
 												<input type="hidden" name="time"  value='<s:property value="#order.getPurchaseTime()"/>'>
 											</form>
 										</s:iterator>
-										<%-- <h4 class="list-group-item-heading">
-											<s:property value="#order.getCommodity().getCommName()" />
-										</h4>
-										<p class="list-group-item-text">
-											销售日期：<s:property value="#order.getPurchaseTime()" />
-										</p> <img alt="140x140" height="220" width="200"
-											src="${pageContext.request.contextPath}/jpg/<s:property value="#order.getCommodity().getCommPicUrl()" />">
-										<form id="orderForm" name="orderForm" 
-											action="${pageContext.request.contextPath}/orderAction.do" method="post"> 
-											<s:property value="#order.getCommodity().getCommName()" />
-											<input type="hidden" name="commPicUrl"  value='<s:property value="#order.getCommodity().getCommPicUrl()"/>'>
-											<input type="hidden" name="orderID"  value='<s:property value="#order.getId().getIdorder()"/>'>
-											<input type="hidden" name="commName"  value='<s:property value="#order.getCommodity().getCommName()"/>'>
-											<input type="hidden" name="time"  value='<s:property value="#order.getCommodity().getPurchaseTime()"/>'>
-											<s:property value="#order.getID().getIdorder()"/>
-											<s:property value="#order.getID().getIdorder()"/>
-											<s:property value="#order.getID().getIdorder()"/>
-											<input type="submit"></input>
-										</form> --%>
-									
 								</div>
 
 							</div>

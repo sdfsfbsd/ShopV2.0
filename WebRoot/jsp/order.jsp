@@ -93,6 +93,22 @@ body {
 .btn1-distance {
 	margin-top: 10px;
 }
+td.usertd{
+ 	vertical-align: middle;
+    height: 60px;
+}
+#td1{
+    vertical-align: middle;
+    height: 60px;
+}
+#td2{
+    vertical-align: middle;
+    height: 60px;
+}
+#td3{
+    vertical-align: middle;
+    height: 60px;
+}
 </style>
 <script type="text/javascript">
 	$(".form_datetime").datetimepicker({
@@ -165,24 +181,66 @@ body {
 									
 								</div>
 								<div>
-									<h4><b>用户信息</b></h4>
-									<h5>用户姓名：<s:property value="#session.User.getUsername()"/>
-									  收货地址：<s:property value="#session.User.getAdd1()"/>
-									联系电话：<s:property value="#session.User.getPhone()"/></h5>
-									<HR SIZE=2 style="border:1 solid #B0E2FF">
+									<h4><b>用户信息</b></h4>	
+									<div class="container">
+									<div class="row clearfix">
+										<div class="col-md-11 column">
+											<table class="table table-striped">
+												<thead>
+													<tr>
+														<th>用户图片</th>
+														<th>用户姓名</th>
+														<th>收货地址</th>
+														<th>联系电话</th>
+														<th>状态</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="usertd"><img alt="140x140" height="100" width="100"
+																		src="${pageContext.request.contextPath}/jpg/<s:property value="#session.User.getPicUrl()" />"> </td>
+														<td class="usertd"><s:property value="#session.User.getUsername()"/></td>
+														<td class="usertd"><s:property value="#session.User.getAdd1()"/></td>
+														<td class="usertd"><s:property value="#session.User.getPhone()"/></td>
+								                    <tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<HR SIZE=2 style="border:1 solid #B0E2FF">
 								</div>
 								<div>
 									<h4><b>订单信息</b></h4>
-									<h5>
-									
-										<img alt="140x140" height="220" width="200"
-											src="${pageContext.request.contextPath}/jpg/<s:property value="#session.ComPic" />">
-										订单号:<s:property value="#session.OrderID"/>
-										商品名:<s:property value="#session.ComName"/>
-									</h5>
 								</div>
 							</div>
-
+							<div class="container">
+								<div class="row clearfix">
+									<div class="col-md-11 column">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>商品图片</th>
+													<th>订单号</th>
+													<th>商品名</th>
+													<th>状态</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<img alt="140x140" height="100" width="100"
+																		src="${pageContext.request.contextPath}/jpg/<s:property value="#session.ComPic" />">
+													</td>
+													<td id="td1"><s:property value="#session.OrderID"/></td>
+													<td id="td2"><s:property value="#session.ComName"/></td>
+													<td id="td3">Default</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
