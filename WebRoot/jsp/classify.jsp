@@ -46,8 +46,9 @@ body {
 ;
 </style>
 </head>
-<body>
-	<div class="container">
+  
+  <body>
+    	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<nav class="navbar navbar-default" role="navigation">
@@ -60,7 +61,7 @@ body {
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 
-							<li><a href="<s:url action="detial"/>">畅销榜</a></li>
+							<li><a href="#">畅销榜</a></li>
 						</ul>
 						<form class="navbar-form navbar-left" role="search"
 							action="search" method="post">
@@ -79,7 +80,7 @@ body {
 									<ul class="dropdown-menu">
 										<li><a href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
 										<li class="divider"></li>
-										<li><a href="${pageContext.request.contextPath}/getShopsAction.do">我的竞猜</a></li>
+										<li><a href="${pageContext.request.contextPath}/jsp/myGuess.jsp">我的竞猜</a></li>
 										<li class="divider"></li>
 										<li><a href="myshop.jsp">我的订单</a></li>
 									</ul></li>
@@ -90,7 +91,7 @@ body {
 
 
 							<s:else>
-								<li><a href="${pageContext.request.contextPath}/jsp/login.jsp">登录</a></li>
+								<li><a href="login.jsp">登录</a></li>
 							</s:else>
 						</ul>
 					</div>
@@ -181,10 +182,10 @@ body {
 								<div class="item active" align="center">
 									<img alt="" src="${pageContext.request.contextPath}/jpg/baiyexing.jpg" style="height: 230px"/>
 									<div class="carousel-caption">
-										<h4>香蕉</h4>
-										<p>使人身心愉悦</p>
-										<form action="${pageContext.request.contextPath}/showItemAction.do" method="post">
-											<input type="hidden" name="idcommodity" value="1" /> <input
+										<h4 style="color: white;">罗尼</h4>
+										<p style="color: white;">英国国家图书奖作品，斯蒂芬.金盛赞推荐，被称为当代经典的传奇处女作</p>
+										<form action="getIteminfo"="post">
+											<input type="hidden" name="itemId" value="1" /> <input
 												type="submit" class="btn btn-default" value="点击前往" />
 										</form>
 									</div>
@@ -220,11 +221,29 @@ body {
 								class="glyphicon glyphicon-chevron-right"></span></a>
 						</div>
 					</div>
-					<div class="col-md-12 column"
-						style="background-color: white;height: 700px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;"></div>
+					<!--div class="col-md-12 column"
+						style="background-color: white;height: 700px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+						</div-->
+						<div class="col-md-12 column" style="background-color: white;padding-bottom: 15px;padding-top: 15px">
+					<s:iterator value="#session.Item" id="item">
+						<div class="col-md-3" style="height: 500">
+							<img alt=""
+								src="${pageContext.request.contextPath}/jpg/<s:property value = "commPicUrl" ></s:property>"  style="height: 300px;width : 200px" />
+							
+							<tr>
+								<form action="showItemAction" method="post">
+									<input type="hidden" name="itemId"
+										value="<s:property value = "idcommodity"></s:property>" /> 
+									<input type="submit" class="btn btn-default"
+										value="<s:property value = "commName"></s:property>" />
+								</form>
+							</tr>
+						</div>
+					</s:iterator>
+				</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</body>
-</Shtml>
+  </body>
+</html>

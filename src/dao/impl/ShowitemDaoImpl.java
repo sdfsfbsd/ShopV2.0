@@ -21,20 +21,18 @@ public class ShowitemDaoImpl extends BaseDaoImpl<Commodity> implements IShowitem
 		// TODO Auto-generated method stub
 		try {
 			List<Commodity> list = new ArrayList<Commodity>();
-			list = super.find("from Commodity");
-			for (int i = 0; i < list.size(); i++) {
-				if (idcommodity.equals(list.get(i).getId())) {
-					ActionContext actionContext = ActionContext.getContext(); 
-				    actionContext.getSession().put("item", list.get(i));
-					return list.get(i);
-				}
-			}
+			int id = Integer.parseInt(idcommodity);
+			list = super.find("from Commodity as c where c.id.idcommodity =?",new Integer[]{id});
+		    System.out.print(list.size());
+		    ActionContext actionContext = ActionContext.getContext(); 
+		    actionContext.getSession().put("item", list.get(0));
+		    return list.get(0);
+		    
 		} catch (Exception e) {
 			e.printStackTrace();
 			LOG.error(e);
 			return null;
 		}
-		return null;
 	}
 
 }
