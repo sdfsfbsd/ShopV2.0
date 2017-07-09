@@ -13,6 +13,7 @@ public class Order implements java.io.Serializable {
 	private OrderId id;
 	private Commodity commodity;
 	private Timestamp purchaseTime;
+	private Boolean isFinish;
 
 	// Constructors
 
@@ -27,10 +28,11 @@ public class Order implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Order(OrderId id, Commodity commodity, Timestamp purchaseTime) {
+	public Order(OrderId id, Commodity commodity, Timestamp purchaseTime, Boolean isFinish) {
 		this.id = id;
 		this.commodity = commodity;
 		this.purchaseTime = purchaseTime;
+		this.isFinish = isFinish;
 	}
 
 	// Property accessors
@@ -57,6 +59,14 @@ public class Order implements java.io.Serializable {
 
 	public void setPurchaseTime(Timestamp purchaseTime) {
 		this.purchaseTime = purchaseTime;
+	}
+
+	public Boolean getIsFinish() {
+		return this.isFinish;
+	}
+
+	public void setIsFinish(Boolean isFinish) {
+		this.isFinish = isFinish;
 	}
 
 }

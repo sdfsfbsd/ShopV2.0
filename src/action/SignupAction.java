@@ -96,7 +96,7 @@ public class SignupAction extends ActionSupport {
 	public String signup() throws Exception {
 		try {
 			String picUrl = "touxiang.jpg";
-			String phone = "123123";
+			String phone = " ";
 			System.out.println(userName + passWord + email);
 			User user = new User(userName, passWord, email, phone, 100, picUrl,5);
 			String buffer = new Date().getTime() + "";

@@ -213,6 +213,14 @@ public class ShopAction extends ActionSupport {
 		
 	}
 	
+	public String getHashKey(String oldPrice) {
+		
+		
+		
+		
+		return oldPrice;
+	}
+	
 	public String newCommody() {
 		try {
 			ActionContext actionContext = ActionContext.getContext();
