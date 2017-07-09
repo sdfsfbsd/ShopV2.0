@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'demo.jsp' starting page</title>
+<title>猜吧</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -186,7 +186,7 @@ body {
 										<form
 											id="orderForm<s:property value="#order.getId().getIdorder()"/>"
 											action="${pageContext.request.contextPath}/orderAction.do"
-											method="post" />
+											method="post" >
 										<a
 											onclick="document.getElementById('orderForm<s:property value="#order.getId().getIdorder()" />').submit();"
 											class="list-group-item">

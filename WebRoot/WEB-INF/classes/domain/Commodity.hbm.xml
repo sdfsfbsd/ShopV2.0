@@ -39,6 +39,15 @@
         <property name="expireTime" type="java.sql.Timestamp">
             <column name="expireTime" length="19" />
         </property>
+        <property name="hashKey" type="java.lang.String">
+            <column name="hashKey" length="45" />
+        </property>
+        <property name="upperLimit" type="java.lang.String">
+            <column name="upperLimit" length="45" />
+        </property>
+        <property name="lowerLimit" type="java.lang.String">
+            <column name="lowerLimit" length="45" />
+        </property>
         <set name="orders" inverse="true">
             <key>
                 <column name="commodity_idcommodity" not-null="true" />
