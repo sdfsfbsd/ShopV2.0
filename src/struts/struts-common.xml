@@ -62,5 +62,10 @@
             <result name="error">jsp/signup.jsp</result>
         </action>
 		
+		<action name="buyAction" method="buy" class="BuyAction">
+		    <result name="success">jsp/mainPage.jsp</result>
+            <result name="error">jsp/signup.jsp</result>
+        </action>
+		
 	</package>
 </struts>    

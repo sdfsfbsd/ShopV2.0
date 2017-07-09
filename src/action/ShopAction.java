@@ -178,7 +178,6 @@ public class ShopAction extends ActionSupport {
 			Set<Commodity> commodities = shop.getCommodities();
 			System.out.println("commodities size is:" + commodities.size());
 			actionContext.getSession().put("Commodities", commodities);
-
 			return SUCCESS;
 
 		} catch (Exception e) {
@@ -200,7 +199,6 @@ public class ShopAction extends ActionSupport {
 			
 			Set<Order> orders = user.getOrders();
 			
-			Order order = new Order();
 
 			System.out.println("orders size:" + orders.size());
 			
@@ -242,7 +240,7 @@ public class ShopAction extends ActionSupport {
 			
 			System.out.println(name + " " + price + number + description + type + picUrl);
 			
-			String buffString = "/jpg/" +picUrl;
+			String buffString = picUrl;
 			
 			Commodity commodity = new Commodity(commodityId, name, price, number, description, type, false);
 			

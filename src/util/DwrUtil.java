@@ -8,6 +8,8 @@ import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
+import service.ICommodityService;
+import service.IOrderService;
 import service.IUserService;
 
 /**
@@ -24,6 +26,14 @@ public class DwrUtil {
 	@Resource
 	private IUserService userService;
 
+	@Resource
+	private ICommodityService commodityService;
+	
+
+	@Resource
+	private IOrderService orderService;
+	
+	
 	/**
 	 * 
 	 * @param userName
@@ -64,8 +74,8 @@ public class DwrUtil {
 				// "对不起，该用户不存在或密码输入错误！");
 				return "对不起，该用户不存在或密码输入错误！";
 			} else {
-				// ServletActionContext.getRequest().setAttribute("loginMsg",
-				// "登入成功！");
+//				 ServletActionContext.getRequest().setAttribute("loginMsg",
+//				 "登入成功！");
 				return "1";
 			}
 		} catch (Exception e) {
@@ -146,5 +156,20 @@ public class DwrUtil {
 		}
 		return "error";
 	}
-
+	
+	
+	public boolean guessPrice(String price,String commdityPrice){
+		System.out.println("开始检验猜价是否相等");
+		
+		if (price.endsWith(commdityPrice)){
+			System.out.println("相同");
+			return true;
+		}
+		else {
+			System.out.println("不相同");
+			return false;
+		}
+		
+		
+	}
 }

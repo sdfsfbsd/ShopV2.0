@@ -125,7 +125,7 @@ body {
 
 <body>
 	<div class="container">
-		<div class="center-block">
+		<div class="center-block" style="padding-top: 200px"  >
 			<h2 style="text-align:center;color:white;font-size: 55px">猜吧</h2>
 			<div class="center-block">
 				<div class="row">
@@ -141,7 +141,7 @@ body {
 								<div class="col-sm-9">
 									<input onblur="usernameCheck()" type="text"
 										class="form-control " name="userName" id="InputUsername"
-										placeholder="8~16位,不包含特殊字符" />
+										placeholder="6~16位,不包含特殊字符" />
 									<div class="form-group" id="UserNameMsg" style="display:none;">
 										<label class="text" style="color: red"> 用户名格式有误！ </label>
 									</div>
@@ -198,8 +198,6 @@ body {
 								</div>
 								<div class="col-md-4 column "></div>
 							</div>
-
-
 						</form>
 					</div>
 				</div>

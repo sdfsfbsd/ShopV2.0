@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>BUKE网</title>
+<title>猜吧</title>
 
 <meta name="keywords" content="keyword1,keyword2,keyword3">
 <meta name="description" content="this is my page">
@@ -80,8 +80,8 @@ body {
 										<li><a href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
 										<li class="divider"></li>
 										<li><a href="${pageContext.request.contextPath}/getShopsAction.do">我的竞猜</a></li>
-										<li class="divider"></li>
-										<li><a href="myshop.jsp">我的订单</a></li>
+									<!-- 	<li class="divider"></li> -->
+										<!-- <li><a href="myshop.jsp">我的订单</a></li> -->
 									</ul></li>
 								<li><a href="${pageContext.request.contextPath}/logoutAction.do">注销</a></li>
 
@@ -105,13 +105,13 @@ body {
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
 								<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="yundong"/>
+									<input type="hidden" name="type" value="运动"/>
 									<input type="submit" class="btn btn-default" value="运动" />	
 								</form>
 								</span>
 								<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="huwai"/>
+									<input type="hidden" name="type" value="户外"/>
 									<input type="submit" class="btn btn-default"  value="户外" />	
 								</form>
 								</span>
@@ -120,19 +120,19 @@ body {
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
 																<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="jiadian"/>
+									<input type="hidden" name="type" value="家电"/>
 									<input type="submit" class="btn btn-default" value="家电" />	
 								</form>
 								</span>
 								<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="shuma"/>
+									<input type="hidden" name="type" value="数码"/>
 									<input type="submit" class="btn btn-default" value="数码" />	
 								</form>
 								</span>
 								<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="shouji"/>
+									<input type="hidden" name="type" value="手机"/>
 									<input type="submit" class="btn btn-default" value="手机" />	
 								</form>
 								</span>
@@ -141,13 +141,13 @@ body {
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
 																<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="xiexue"/>
+									<input type="hidden" name="type" value="鞋靴"/>
 									<input type="submit" class="btn btn-default" value="鞋靴" />	
 								</form>
 								</span>
 								<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="peijian"/>
+									<input type="hidden" name="type" value="配件"/>
 									<input type="submit" class="btn btn-default" value="配件" />	
 								</form>
 								</span>
@@ -156,13 +156,13 @@ body {
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
 																<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="wujindianzi"/>
+									<input type="hidden" name="type" value="五金电子"/>
 									<input type="submit" class="btn btn-default" value="五金电子" />	
 								</form>
 								</span>
 								<span style="display:inline-block;">
 								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="bangong"/>
+									<input type="hidden" name="type" value="办公"/>
 									<input type="submit" class="btn btn-default" value="办公" />	
 								</form>
 								</span>
