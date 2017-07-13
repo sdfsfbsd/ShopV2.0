@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import domain.Comment;
 import domain.Commodity;
 import domain.CommodityId;
 import domain.Order;
@@ -169,15 +170,27 @@ public class ShopAction extends ActionSupport {
 			User user1 = (User) actionContext.getSession().get("User");
 			User user = userService.findUser(user1.getUsername(), user1.getPassword());
 			Shop shop = new Shop();
+			Comment comment = new Comment();
 			Set<Shop> shops = user.getShops();
 			Iterator<Shop> iterator = shops.iterator();
 			while (iterator.hasNext()) {
 				shop = (Shop) iterator.next();
 			}
+			Set<Comment> comments = shop.getComments();
 			System.out.println(shop.getId().getIdshop());
 			Set<Commodity> commodities = shop.getCommodities();
 			System.out.println("commodities size is:" + commodities.size());
+			System.out.println("comment size is:" + comments.size());
+			//²âÊÔcomments´«Öµ
+			Iterator<Comment> iterator2 = comments.iterator();
+			while (iterator2.hasNext()) {
+				comment = (Comment) iterator2.next();
+				System.out.println("ÆÀÂÛ£º"+comment.getContent());
+			}
+			
 			actionContext.getSession().put("Commodities", commodities);
+			actionContext.getSession().put("Comments", comments);
+			actionContext.getSession().put("Shop", shop);
 			return SUCCESS;
 
 		} catch (Exception e) {

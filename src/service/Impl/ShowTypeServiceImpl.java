@@ -21,11 +21,11 @@ public class ShowTypeServiceImpl implements IShowTypeService{
 	private IShowTypeDao ishowTypeDao;
 
 	@Override
-	public List<Commodity> findCommodityByType(String type) {
+	public List<Commodity> findCommodityByType(String type,boolean flag) {
 		// TODO Auto-generated method stub
 		
 		List<Commodity> items = new ArrayList<Commodity>();
-		items = ishowTypeDao.findCommodityByType(type);
+		items = ishowTypeDao.findCommodityByType(type,flag);
 		return items;
 	}
 	

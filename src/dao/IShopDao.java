@@ -1,5 +1,6 @@
 package dao;
 
+import domain.Commodity;
 import domain.Shop;
 
 /**
@@ -11,4 +12,5 @@ import domain.Shop;
  */
 public interface IShopDao {
 	public boolean addShop(Shop shop);
+	public Shop findShopById(Integer id);
 }

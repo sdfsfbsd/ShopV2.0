@@ -1,5 +1,6 @@
 package action;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import domain.Commodity;
 import domain.Order;
+import domain.Shop;
 import domain.User;
 import service.IUserService;
 
@@ -66,6 +68,14 @@ public class LoginAction extends ActionSupport {
 		// TODO Auto-generated method stub
 		
 		User user = userService.findUser(userName, passWord);
+		Shop shop = new Shop();
+		Set<Shop> shops = user.getShops();
+		Iterator<Shop> iterator = shops.iterator();
+		while (iterator.hasNext()) {
+			shop = (Shop) iterator.next();
+		}
+		
+		
 		if (user != null) {
 			System.out.println("size :" +user.getShops().size());
 			System.out.println("size2 :" +user.getOrders().size());

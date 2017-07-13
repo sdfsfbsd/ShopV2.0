@@ -19,8 +19,11 @@
             <column name="commodity_shop_idshop" not-null="true" />
             <column name="commodity_shop_user_idUser" not-null="true" />
         </many-to-one>
-        <property name="purchaseTime" type="java.sql.Timestamp">
-            <column name="purchaseTime" length="19" />
+        <property name="purchaseTime" type="java.util.Date">
+            <column name="purchaseTime" length="10" />
+        </property>
+        <property name="ifFinish" type="java.lang.Boolean">
+            <column name="ifFinish" />
         </property>
     </class>
 </hibernate-mapping>
