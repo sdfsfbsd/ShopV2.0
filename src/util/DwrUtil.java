@@ -89,12 +89,18 @@ public class DwrUtil {
 		System.out.println("userName: " + userName + ", passWord: " + passwWord);
 
 		if (StringUtils.isBlank(userName) || StringUtils.isBlank(passwWord)) {
+			// ServletActionContext.getRequest().setAttribute("loginMsg",
+			// "账号或密码未输入！");
 			return "账号或密码未输入！";
 		}
 		try {
 			if (userService.findUser(userName, passwWord) == null) {
+				// ServletActionContext.getRequest().setAttribute("loginMsg",
+				// "对不起，该用户不存在或密码输入错误！");
 				return "对不起，该用户不存在或密码输入错误！";
 			} else {
+//				 ServletActionContext.getRequest().setAttribute("loginMsg",
+//				 "登入成功！");
 				return "1";
 			}
 		} catch (Exception e) {
