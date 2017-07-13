@@ -61,15 +61,6 @@
 			<result name="success">jsp/mainPage.jsp</result>
 			<result name="error">jsp/mainPage.jsp</result>
 		</action>
-		<action name="showItemAction" method="execute" class="ShowItemAction">
-		    <result name="success">jsp/ItemDes.jsp</result>
-            <result name="error">jsp/signup.jsp</result>
-        </action>
-		
-		<action name="buyAction" method="buy" class="BuyAction">
-		    <result name="success">jsp/MyJsp.jsp</result>
-            <result name="error">jsp/signup.jsp</result>
-        </action>
 		
 		<action name="commentAction" method="saveComment" class="CommentAction">
 			 <result name="success">jsp/myPurchase.jsp</result>
