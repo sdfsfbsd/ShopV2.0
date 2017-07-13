@@ -13,6 +13,6 @@ import domain.Commodity;
  */
 
 public interface IShowTypeDao {
-	public List<Commodity> findCommodityByType(String type);
+	public List<Commodity> findCommodityByType(String type,boolean flag);
 
 }

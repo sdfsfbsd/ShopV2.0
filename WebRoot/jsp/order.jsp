@@ -49,7 +49,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-
+<link rel="stylesheet" href="css/mytyle.css" />
+<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="js/my.js" ></script>
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -60,6 +62,52 @@
 	charset="UTF-8"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.fr.js"
 	charset="UTF-8"></script>
+			<style type="text/css">
+			*{
+				margin: 0;
+			}
+			.box{
+				/* width: 80%;
+				margin:20px auto; */
+				margin-left: 20px;
+			}
+			.list{
+				margin: 0 50px;
+				width: 30%;
+				float: left;
+			}
+			
+			a{
+				font-size: 30px;
+				text-decoration:none;
+				color: lightgray;
+			}
+			.textStyle{
+				font-size: 15px;
+			}
+			span{
+				font-size: 40px;
+				padding-top: 10px;
+				margin-left: 50px;
+			}
+			.c1{
+				color: limegreen;
+			}
+			.c2{
+				color: limegreen;
+			}
+			.c3{
+				color: limegreen;
+			}
+			.c4{
+				color: limegreen;
+			}
+			.c5{
+				color: limegreen;
+			}
+			a:link{}
+a:hover{color:limegreen}
+</style>
 <style>
 body {
 	background-image: url(${pageContext.request.contextPath}/jpg/2.jpg);
@@ -109,11 +157,36 @@ td.usertd{
     vertical-align: middle;
     height: 60px;
 }
+#confirm{
+	float: right;
+	margin-right: 220px;
+	margin-bottom: 70px;
+}
+#csubmit{
+	margin-top:20px;
+	margin-right: 100px;
+	margin-bottom: 40px;
+}
+#starlist{
+	margin-left: 170px;
+}
 </style>
 <script type="text/javascript">
 	$(".form_datetime").datetimepicker({
 		format : 'yyyy-mm-dd hh:ii'
 	});
+</script>
+<script>
+	function isFinish(){
+		var state = '<%=session.getAttribute("OrderState")%>';
+		if(state==true){
+			document.getElementById("jsTest").innerHTML="已收货";
+		}
+		else {
+			document.getElementById("jsTest").innerHTML="确认收货";
+		}
+		
+	}
 </script>
 </head>
 
@@ -136,7 +209,7 @@ td.usertd{
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="<s:url action="detial"/>">畅销榜</a></li>
+						<li><a class="textStyle" href="<s:url action="detial"/>">畅销榜</a></li>
 					</ul>
 					<form class="navbar-form navbar-left" role="search" action="search"
 						method="post">
@@ -147,20 +220,20 @@ td.usertd{
 					</form>
 					<ul class="nav navbar-nav navbar-right">
 						<s:if test="#session.User!=null">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
+							<li class="dropdown"><a href="#" class="dropdown-toggle textStyle"
 								data-toggle="dropdown"><s:property
 										value="#session.User.getUsername()" /><strong class="caret"></strong>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a
+									<li><a class="textStyle"
 										href="${pageContext.request.contextPath }/jsp/personalData.jsp">我的信息</a></li>
 									<li class="divider"></li>
-									<li><a
+									<li><a class="textStyle"
 										href="${pageContext.request.contextPath}/jsp/myGuess.jsp">我的竞猜</a></li>
 									<li class="divider"></li>
-									<li><a href="#">我的订单</a></li>
+									<li><a class="textStyle" href="#">我的订单</a></li>
 								</ul></li>
-							<li><a
+							<li><a class="textStyle"
 								href="${pageContext.request.contextPath}/logoutAction.do">注销</a></li>
 						</s:if>
 						<s:else>
@@ -192,7 +265,6 @@ td.usertd{
 														<th>用户姓名</th>
 														<th>收货地址</th>
 														<th>联系电话</th>
-														<th>状态</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -241,17 +313,66 @@ td.usertd{
 									</div>
 								</div>
 							</div>
+							<s:property value="session.OrderState"/>
+							<div id="jsTest"></div>
+							<div id="confirm">
+								<a id="modal-951502" href="#modal-container-951502"
+						role="button" class="btn btn btn-success" data-toggle="modal">确认收货</a>
+							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="modal fade" id="modal-container-951502" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">×</button>
+								<h4 class="modal-title" id="myModalLabel">商品评论</h4>
+							</div>
+							<form class="form-horizontal" id="priceForm"
+									action="${pageContext.request.contextPath}/commentAction.do"
+									method="post">
+								<div class="modal-body">
+									<div class="col-md-12 column" style="padding-bottom: 10px">
+										<label for="guessPrice"
+											class="col-sm-3 control-label text-info">输入评论：</label>
+										<div class="col-sm-9">
+											<textarea name="comment" style="width:300px;height:150px;"></textarea>
+										</div>
+									</div>
+								</div>
+								
+								<div class="box">
+									<h4>商品评分</h4>
+									<div id="starlist" class="list">
+										<a id="a1" href="javascript:void(0)" class="star1" style="text-decoration: none">★</a>
+										<a id="a2" href="javascript:void(0)" class="star2" style="text-decoration: none">★</a>
+										<a id="a3" href="javascript:void(0)" class="star3" style="text-decoration: none">★</a>
+										<a id="a4" href="javascript:void(0)" class="star4" style="text-decoration: none">★</a>
+										<a id="a5" href="javascript:void(0)" class="star5" style="text-decoration: none">★</a>
+									</div>
+								</div>
+							
+							<div class="modal-footer">
+								<input id="csubmit" type="submit" class="btn btn-success" value="提交">
+							</div>
+							<span class="remark"></span>
+						</form>
+						</div>
+						
+					</div>
+				</div>
 	</div>
 	<script type="text/javascript">
 	
 	
 		$('.form_datetime').datetimepicker({
-			//language:  'fr',
+			//language:  'fr'
 			weekStart : 1,
 			todayBtn : 1,
 			autoclose : 1,

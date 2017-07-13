@@ -11,6 +11,6 @@ import domain.Commodity;
  *
  */
 public interface IShowTypeService {
-	public List<Commodity> findCommodityByType(String type);
+	public List<Commodity> findCommodityByType(String type,boolean flag);
 }
 
