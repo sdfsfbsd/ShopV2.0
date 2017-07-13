@@ -1,12 +1,16 @@
 package dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.opensymphony.xwork2.ActionContext;
+
 import dao.IShopDao;
+import domain.Commodity;
 import domain.Shop;
 
 @Repository
@@ -47,6 +51,23 @@ public class ShopDaoImpl extends BaseDaoImpl<Shop> implements IShopDao {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public Shop findShopById(Integer id) {
+		// TODO Auto-generated method stub
+		try {
+			List<Shop> list = new ArrayList<Shop>();
+			System.out.print("新shopid！："+id);
+			list = super.find("from Shop as s where s.id.idshop =?",new Integer[]{id});
+		    System.out.print("新加的shop查找！："+list.size());
+		    return list.get(0);
+		    
+		} catch (Exception e) {
+			e.printStackTrace();
+			LOG.error(e);
+			return null;
+		}
 	}
 
 

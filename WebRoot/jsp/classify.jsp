@@ -1,6 +1,11 @@
 <%@page import="org.springframework.web.context.request.RequestScope"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,7 +33,12 @@
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
 
+<SCRIPT type=text/javascript>
+function Over(o){ o.style.border='1px solid #FF3300';}
+function Out(o){ o.style.border='0px dotted #000';}
+</SCRIPT>
 <style type="text/css">
+
 body {
 	background-image: url(${pageContext.request.contextPath}/jpg/2.jpg);
 	background-color: #000000;
@@ -92,7 +102,7 @@ body {
 						</ul>
 					</div>
 				</nav>
-					<div class="row clearfix">
+				<div class="row clearfix">
 					<div class="col-md-4 column">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -100,69 +110,24 @@ body {
 							</div>
 							<div class="panel-body"
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
-								<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="运动"/>
-									<input type="submit" class="btn btn-default" value="运动" />	
-								</form>
-								</span>
-								<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="户外"/>
-									<input type="submit" class="btn btn-default"  value="户外" />	
-								</form>
-								</span>
+								<a href = "${pageContext.request.contextPath}/showTypeAction.do?type =yundong">运动</a>
+								/<a href = "${pageContext.request.contextPath}/showTypeAction.do?type =huwai">户外</a>
 							</div>
 							<div class="panel-body"
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
-																<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="家电"/>
-									<input type="submit" class="btn btn-default" value="家电" />	
-								</form>
-								</span>
-								<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="数码"/>
-									<input type="submit" class="btn btn-default" value="数码" />	
-								</form>
-								</span>
-								<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="手机"/>
-									<input type="submit" class="btn btn-default" value="手机" />	
-								</form>
-								</span>
+								 <a href = "${pageContext.request.contextPath}/showTypeAction.do?type =jiadian" >家电</a>
+								/<a href = "${pageContext.request.contextPath}/showTypeAction.do?type =shuma">数码</a>
+								/<a href = "${pageContext.request.contextPath}/showTypeAction.do?type =shouji">手机</a>
 							</div>
 							<div class="panel-body"
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
-																<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="鞋靴"/>
-									<input type="submit" class="btn btn-default" value="鞋靴" />	
-								</form>
-								</span>
-								<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="配件"/>
-									<input type="submit" class="btn btn-default" value="配件" />	
-								</form>
-								</span>
+								 <a href = "${pageContext.request.contextPath}/showTypeAction.do?type =xiexue">鞋靴</a>
+								/<a href = "${pageContext.request.contextPath}/showTypeAction.do?type =peijian">配件</a>
 							</div>
 							<div class="panel-body"
 								style="border-bottom:1px solid ;border-bottom-color: #CCCCCC">
-																<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="五金电子"/>
-									<input type="submit" class="btn btn-default" value="五金电子" />	
-								</form>
-								</span>
-								<span style="display:inline-block;">
-								<form action = "${pageContext.request.contextPath}/showTypeAction.do" method = "post">								
-									<input type="hidden" name="type" value="办公"/>
-									<input type="submit" class="btn btn-default" value="办公" />	
-								</form>
-								</span>
+								 <a href = "${pageContext.request.contextPath}/showTypeAction.do?type =wujindianzi">五金电子</a>
+								/<a href = "${pageContext.request.contextPath}/showTypeAction.do?type =bangong">办公</a>
 							</div>
 						</div>
 					</div>
@@ -220,24 +185,43 @@ body {
 					<!--div class="col-md-12 column"
 						style="background-color: white;height: 700px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
 						</div-->
-						<div class="col-md-12 column" style=" height: 700px;background-color: white;padding-bottom: 15px;padding-top: 15px">
-					<s:iterator value="#session.Item" id="item">
-						<div class="col-md-3" style="height: 500">
+						
+			
+				
+			</div>
+					<div class="col-md-12 column"
+						style="background-color: white;height: auto;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+			<div class="panel panel-default" border-radius: 8px 8px 8px 8px;>
+				<div class="panel-heading" >
+					<h1 class="panel-title">
+						<font color ="000">当前分类：
+						<s:property value = "#session.Classify.get(0).getType()"></s:property> </font>
+					</h1>
+				</div>
+				<div class="panel-body">			
+					<s:iterator value="#session.Classify" id="classifyitem">
+						
+						<div class="col-md-3 column" onmouseover= Over(this); onmouseout= Out(this);style = "height:370px">
+							<div>
 							<img alt=""
-								src="${pageContext.request.contextPath}/jpg/<s:property value = "commPicUrl" ></s:property>"  style="height: 300px;width : 200px" />
-							
-							<tr>
-								<form action="${pageContext.request.contextPath}/showItemAction.do" method="post">
-									<input type="hidden" name="idcommodity"
-										value="<s:property value = "id.idcommodity"></s:property>" /> 
-									<input type="submit" class="btn btn-default"
-										value="<s:property value = "commName"></s:property>" />
-								</form>
-							</tr>
+								src="${pageContext.request.contextPath}/jpg/<s:property value = "commPicUrl" ></s:property>"  style="height: 300px;width : 250px" />
+							</div>
+							<div style="padding-top: 5px">
+								
+								 <a href = "${pageContext.request.contextPath}/showItemAction.do?
+								 idcommodity=<s:property value ="id.idcommodity"></s:property>">
+					 			  <s:property value = "commName"></s:property></a>						
+								
+							</div>
+							<div>
+								<font color = "#FF0000">截止时间：<s:property value = "expireTime"></s:property></font>
+							</div>
 						</div>
-					</s:iterator>
-				</div>
-				</div>
+					</s:iterator> 		
+			</div>		
+		</div>
+		</div>
+			</div>
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 package domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Order entity. @author MyEclipse Persistence Tools
@@ -12,7 +12,8 @@ public class Order implements java.io.Serializable {
 
 	private OrderId id;
 	private Commodity commodity;
-	private Timestamp purchaseTime;
+	private Date purchaseTime;
+	private Boolean ifFinish;
 
 	// Constructors
 
@@ -27,10 +28,11 @@ public class Order implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Order(OrderId id, Commodity commodity, Timestamp purchaseTime) {
+	public Order(OrderId id, Commodity commodity, Date purchaseTime, Boolean ifFinish) {
 		this.id = id;
 		this.commodity = commodity;
 		this.purchaseTime = purchaseTime;
+		this.ifFinish = ifFinish;
 	}
 
 	// Property accessors
@@ -51,12 +53,20 @@ public class Order implements java.io.Serializable {
 		this.commodity = commodity;
 	}
 
-	public Timestamp getPurchaseTime() {
+	public Date getPurchaseTime() {
 		return this.purchaseTime;
 	}
 
-	public void setPurchaseTime(Timestamp purchaseTime) {
+	public void setPurchaseTime(Date purchaseTime) {
 		this.purchaseTime = purchaseTime;
+	}
+
+	public Boolean getIfFinish() {
+		return this.ifFinish;
+	}
+
+	public void setIfFinish(Boolean ifFinish) {
+		this.ifFinish = ifFinish;
 	}
 
 }

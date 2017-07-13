@@ -208,6 +208,14 @@ body {
 											value='<s:property value="#order.getCommodity().getCommName()"/>'>
 										<input type="hidden" name="time"
 											value='<s:property value="#order.getPurchaseTime()"/>'>
+										<input type="hidden" name="state"
+											value='<s:property value="#order.getIfFinish()"/>'>
+										<input type="hidden" name="sellerName"
+											value='<s:property value="#order.getCommodity().getId().getShop().getId().getUser().getUsername()"/>'>
+										<input type="hidden" name="sellerPwd"
+											value='<s:property value="#order.getCommodity().getId().getShop().getId().getUser().getPassword()"/>'>
+											<input type="hidden" name="shopId"
+											value='<s:property value="#order.getCommodity().getId().getShop().getId().getIdshop()"/>'>
 										</form>
 									</s:iterator>
 								</div>

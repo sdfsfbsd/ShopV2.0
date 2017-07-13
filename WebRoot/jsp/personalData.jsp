@@ -89,16 +89,22 @@ body {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
-	border: 2px solid rgba(188, 193, 196, 0.91);
+	border: 3px solid rgba(188, 193, 196, 0.91);
 	font: normal 16px/1 "Times New Roman", Times, serif;
 	color: rgba(255, 255, 255, 1);
 	text-align: center;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
+    width:200px; 
+    height:220px; 
+    position:relative;
+    left:100px;
+    high:20px;
 }
 
 .btn1-distance {
 	margin-top: 10px;
+
 }
 </style>
 
@@ -157,19 +163,7 @@ body {
 
 		<div class="row clearfix">
 
-			<div class="col-md-3 column ">
-
-
-				<div class="border1">
-					<img alt="140x140"
-						src="${pageContext.request.contextPath}/jpg/<s:property value="#session.User.getPicUrl()" />"
-						height="220" width="200" />
-				</div>
-
-				<div class="btn1-distane"></div>
-			</div>
-			<div class="col-md-1 column "></div>
-			<div class="col-md-8 column enjoy-css"
+			<div class="col-md-12 column enjoy-css"
 				style="background-color:white;padding-bottom: 15px;padding-top: 15px;height: 450px;border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
 
 				<div class="col-md-12 column">
@@ -181,43 +175,64 @@ body {
 						</ul>
 						<div class="tab-content" style="padding-top: 10px">
 							<div class="tab-pane active" id="panel-637903">
+                            <div class="col-md-5 column">
+                            <br/>
+                            <br/>
+				<div class="border1" >
+					<img alt="140x140"
+						src="${pageContext.request.contextPath}/jpg/<s:property value="#session.User.getPicUrl()" />"
+						height="220" width="200" />
+				</div>
+				<br/>
+				<div class="text-info" style="padding-bottom: 15px;text-align: center;font-weight:bold">
+											账户余额:&nbsp;&nbsp;&nbsp;
+											<s:property value="#session.User.getBalance()" />
+											元
+										</div>
+				</div>
+				<div class="col-md-7 column">
+				<br/>
+				<br/>
 								<form
 									action="${pageContext.request.contextPath}/changeInfoAction.do"
 									method="post" id="infoForm">
 									<dl>
 										<dt class="text-info" style="padding-bottom: 15px">
-											姓名:&nbsp&nbsp&nbsp<input type="text" name="userName"
+											用户名:&nbsp&nbsp&nbsp<input type="text" name="userName"
 												id="oldUsername"
 												value="<s:property value="#session.User.getUsername()" />" />
 
 										</dt>
-
+                                        <br/>
 										<dt class="text-info" style="padding-bottom: 15px">
 											邮箱:&nbsp&nbsp&nbsp<input type="text" name="email"
 												value="<s:property value="#session.User.getAdd1()" />" />
 
 										</dt>
+										<br/>
 										<dt class="text-info" style="padding-bottom: 15px">
 											联系方式:&nbsp&nbsp&nbsp<input type="text" name="phone"
 												value="<s:property value="#session.User.getPhone()" />" />
-
+                                       
 										</dt>
-										<dt class="text-info" style="padding-bottom: 15px">
-											账户余额:&nbsp&nbsp&nbsp
-											<s:property value="#session.User.getBalance()" />
-											元
-										</dt>
+										<br/>
 									</dl>
+									
 									<div class="col-md-12 column " style="">
 										<div class="col-xs-4 col-md-offset-4">
 											<a onclick="document.getElementById('infoForm').submit();"
-												role="button" class="btn btn-info btn-xs">保存</a>
+												role="button" class="btn btn-info btn-xs" style="width:80px;height:32px;font-size:16px;">保存</a>
 										</div>
 									</div>
 								</form>
-
+                            </div>
 							</div>
 							<div class="tab-pane " id="panel-896076">
+							<div class="col-md-4 column"></div>
+							<div class="col-md-5 column">
+							    <br/>
+							    <br/>
+							    <br/>
 								<form
 									action="${pageContext.request.contextPath}/changePasswordAction.do"
 									id="privateInfoForm" method="post">
@@ -226,6 +241,7 @@ body {
 											旧密码:&nbsp&nbsp&nbsp <input type="text" name="oldPassword"
 												id="oldPassword" />
 										</dt>
+										<br/>
 										<dt class="text-info" style="padding-bottom: 15px">
 											新密码:&nbsp&nbsp&nbsp <input type="text" name="newPassword" />
 										</dt>
@@ -233,35 +249,43 @@ body {
 									<div class="col-md-12 column " style="">
 										<div class="col-xs-4 col-md-offset-4">
 											<a onclick="passwordCheck()" role="button"
-												class="btn btn-info btn-xs">保存</a>
+												class="btn btn-info btn-xs" style="width:80px;height:32px;font-size:16px;">保存</a>
 										</div>
 									</div>
 								</form>
+								</div>
+								<div class="col-md-3 column"></div>
 							</div>
 							<div class="tab-pane " id="panel-896075">
+							<div class="col-md-4 column"></div>
+							<div class="col-md-5 column">
 								<form
 									action="${pageContext.request.contextPath}/changePicAction.do"
 									id="picUrlForm" method="post">
 									<p>选择新头像</p>
 									<div class="col-md-12 column" style="padding-bottom: 10px">
-										<div class="col-md-4 column">
-											<label for="pic" class="text-info">上传照片</label> <img id="pic"
+										
+											<label for="pic" class="text-info">上传照片</label> 
+											<img id="pic"
 												alt="140x140" src="" height="220" width="200" />
-										</div>
-										<div class="col-md-8 column">
+										    <br/>
 											<div class="col-sm-9">
+											 <br/>
 												<input type="file" class="form-control" id="picUrl"
 													name="picUrl" onchange="picChange()" />
+			
 											</div>
-										</div>
+								
 									</div>
 									<div class="col-md-12 column " style="">
 										<div class="col-xs-6 col-md-offset-4">
 											<a onclick="document.getElementById('picUrlForm').submit()" role="button"
-												class="btn btn-info btn-xs">保存</a>
+												class="btn btn-info btn-xs" style="width:80px;height:32px;font-size:16px;">保存</a>
 										</div>
 									</div>
 								</form>
+								</div>
+								<div class="col-md-3 column"></div>
 							</div>
 						</div>
 					</div>

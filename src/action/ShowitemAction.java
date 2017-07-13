@@ -1,8 +1,12 @@
 package action;
 
 import javax.annotation.Resource;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import domain.Commodity;
+import service.IShowcomService;
 import service.IShowitemService;
 
 public class ShowitemAction  extends ActionSupport {
@@ -38,15 +42,49 @@ public class ShowitemAction  extends ActionSupport {
 	}
 	
 	
-	public String Showitem() throws Exception {
+	public boolean Showitem() throws Exception {
 		// TODO Auto-generated method stu
 		Commodity c =new Commodity();
 		c = showitemService.findCommodityById(idcommodity);
 		//System.out.println("Name:" + c.getCommName());
-		System.out.println(idcommodity);
-		return "success";
+		return true;
+	}
+	
+	@Resource
+	private IShowcomService showcomService;
+
+	public IShowcomService getShowcomService() {
+		return showcomService;
 	}
 
+	public void setShowcomService(IShowcomService showcomService) {
+		this.showcomService = showcomService;
+	}
+	
+	public boolean Showcom() throws Exception {
+		// TODO Auto-generated method stu
+		boolean t = true;
+		t = showcomService.findComment();
+		//System.out.println("Name:" + c.getCommName());
+		System.out.println(t);
+		return t;
+	}
+	
+	
+	public String execute() throws Exception {
+		if(Showitem()){
+			if(Showcom()){
+				System.out.println("Õý³£");
+				return "success";
+				}
+			else
+				return "error";
+			}
+		else{
+			return "error";
+		}
+	}
+	
 	public ShowitemAction() {
 		super();
 	}

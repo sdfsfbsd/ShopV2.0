@@ -309,6 +309,11 @@ body {
 										data-toggle="modal" role="button"
 										class="btn btn-success btn-xs">发布新的竞猜</a>
 								</div>
+								<div>   </div>
+								<div>
+								
+							</div>
+							
 							</div>
 						</div>
 					</div>
