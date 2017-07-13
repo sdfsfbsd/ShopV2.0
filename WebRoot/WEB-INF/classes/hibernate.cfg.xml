@@ -13,9 +13,7 @@
 	<property name="connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
-	<property name="dialect">
-		org.hibernate.dialect.MySQLDialect
-	</property>
+	<property name="dialect">org.hibernate.dialect.MySQLMyISAMDialect</property>
 	<mapping resource="domain/Comment.hbm.xml" />
 	<mapping resource="domain/Commodity.hbm.xml" />
 	<mapping resource="domain/Order.hbm.xml" />
