@@ -21,6 +21,9 @@ public class Commodity implements java.io.Serializable {
 	private String type;
 	private Boolean isSold;
 	private Timestamp expireTime;
+	private String hashKey;
+	private String upperLimit;
+	private String lowerLimit;
 	private Set orders = new HashSet(0);
 
 	// Constructors
@@ -43,7 +46,8 @@ public class Commodity implements java.io.Serializable {
 
 	/** full constructor */
 	public Commodity(CommodityId id, String commName, String commPrice, String commNumber, String commDescription,
-			String commPicUrl, String type, Boolean isSold, Timestamp expireTime, Set orders) {
+			String commPicUrl, String type, Boolean isSold, Timestamp expireTime, String hashKey, String upperLimit,
+			String lowerLimit, Set orders) {
 		this.id = id;
 		this.commName = commName;
 		this.commPrice = commPrice;
@@ -53,6 +57,9 @@ public class Commodity implements java.io.Serializable {
 		this.type = type;
 		this.isSold = isSold;
 		this.expireTime = expireTime;
+		this.hashKey = hashKey;
+		this.upperLimit = upperLimit;
+		this.lowerLimit = lowerLimit;
 		this.orders = orders;
 	}
 
@@ -128,6 +135,30 @@ public class Commodity implements java.io.Serializable {
 
 	public void setExpireTime(Timestamp expireTime) {
 		this.expireTime = expireTime;
+	}
+
+	public String getHashKey() {
+		return this.hashKey;
+	}
+
+	public void setHashKey(String hashKey) {
+		this.hashKey = hashKey;
+	}
+
+	public String getUpperLimit() {
+		return this.upperLimit;
+	}
+
+	public void setUpperLimit(String upperLimit) {
+		this.upperLimit = upperLimit;
+	}
+
+	public String getLowerLimit() {
+		return this.lowerLimit;
+	}
+
+	public void setLowerLimit(String lowerLimit) {
+		this.lowerLimit = lowerLimit;
 	}
 
 	public Set getOrders() {

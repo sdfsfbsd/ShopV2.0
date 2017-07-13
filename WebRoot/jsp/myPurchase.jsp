@@ -11,7 +11,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'demo.jsp' starting page</title>
+<title>猜吧</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -105,6 +105,7 @@ body {
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
+				
 				<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -164,7 +165,7 @@ body {
 								<a href="${pageContext.request.contextPath}/jsp/myGuess.jsp">我发布的竞猜</a>
 							</div>
 							<div class="panel-body">
-								<a href="myshop.jsp">我已抢到的宝贝</a>
+								<a href="${pageContext.request.contextPath}/jsp/myPurchase.jsp">我已抢到的宝贝</a>
 							</div>
 						</div>
 					</div>
@@ -179,29 +180,36 @@ body {
 											<s:property value="#session.UserOrder.size()" />
 										</h4>
 									</a>
-									
-									
-										<s:iterator value="#session.UserOrder" id="order">
-											<form id="orderForm<s:property value="#order.getId().getIdorder()"/>"
-											action="${pageContext.request.contextPath}/orderAction.do" method="post"/>
-												<a onclick="document.getElementById('orderForm<s:property value="#order.getId().getIdorder()" />').submit();"class="list-group-item">
-													<h4 class="list-group-item-heading">
-													<s:property value="#order.getCommodity().getCommName()" />
-													</h4>
-													<p class="list-group-item-text">
-													销售日期：
-													<s:property value="#order.getPurchaseTime()" />
-													</p> 
-													<img alt="140x140" height="220" width="200"
-													src="${pageContext.request.contextPath}/jpg/
+
+
+									<s:iterator value="#session.UserOrder" id="order">
+										<form
+											id="orderForm<s:property value="#order.getId().getIdorder()"/>"
+											action="${pageContext.request.contextPath}/orderAction.do"
+											method="post" >
+										<a
+											onclick="document.getElementById('orderForm<s:property value="#order.getId().getIdorder()" />').submit();"
+											class="list-group-item">
+											<h4 class="list-group-item-heading">
+												<s:property value="#order.getCommodity().getCommName()" />
+											</h4>
+											<p class="list-group-item-text">
+												销售日期：
+												<s:property value="#order.getPurchaseTime()" />
+											</p> <img alt="140x140" height="220" width="200"
+											src="${pageContext.request.contextPath}/jpg/
 													<s:property value="#order.getCommodity().getCommPicUrl()" />">
-												</a>
-												<input type="hidden" name="commPicUrl"  value='<s:property value="#order.getCommodity().getCommPicUrl()"/>'>
-												<input type="hidden" name="orderID"  value='<s:property value="#order.getId().getIdorder()"/>'>
-												<input type="hidden" name="commName"  value='<s:property value="#order.getCommodity().getCommName()"/>'>
-												<input type="hidden" name="time"  value='<s:property value="#order.getPurchaseTime()"/>'>
-											</form>
-										</s:iterator>
+										</a>
+										<input type="hidden" name="commPicUrl"
+											value='<s:property value="#order.getCommodity().getCommPicUrl()"/>'>
+										<input type="hidden" name="orderID"
+											value='<s:property value="#order.getId().getIdorder()"/>'>
+										<input type="hidden" name="commName"
+											value='<s:property value="#order.getCommodity().getCommName()"/>'>
+										<input type="hidden" name="time"
+											value='<s:property value="#order.getPurchaseTime()"/>'>
+										</form>
+									</s:iterator>
 								</div>
 
 							</div>

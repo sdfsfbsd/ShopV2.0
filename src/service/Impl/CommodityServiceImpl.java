@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dao.ICommodityDao;
 import domain.Commodity;
+import domain.Order;
 import service.ICommodityService;
 @Transactional
 @Service
@@ -27,6 +28,25 @@ public class CommodityServiceImpl implements ICommodityService {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public Commodity findCommodityById(String id) {
+		// TODO Auto-generated method stub
+		Commodity commodity = new Commodity();
+		commodity= icommodityDao.findCommodityById(id);
+		return commodity;
+	}
+
+	@Override
+	public boolean updateCommodity(Commodity commodity) {
+		try {
+			icommodityDao.updateCommodity(commodity);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }
