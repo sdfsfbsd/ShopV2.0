@@ -16,7 +16,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import domain.User;
 import service.IUserService;
-import service.TestService;
 
 class HibernateUtils {
 	private static Configuration configuration;
