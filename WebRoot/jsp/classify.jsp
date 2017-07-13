@@ -30,8 +30,8 @@
 
 <style type="text/css">
 body {
-	background-image: url(${pageContext.request.contextPath}/jpg/2.jpg);
-	background-color: #000000;
+	/* background-image: url(${pageContext.request.contextPath}/jpg/2.jpg); */
+	background-color: #CCC;
 }
 
 ;

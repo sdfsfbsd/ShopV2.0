@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +23,7 @@ public class UserServiceImpl implements IUserService {
 	private IUserDao iUserDao;
    
 	@Override
+	
 	public User findUser(String userName, String password) {
 		// TODO Auto-generated method stub
 		User user= new User();
@@ -33,9 +36,13 @@ public class UserServiceImpl implements IUserService {
 			return user;
 		}
 	}
+	
+	@Override
+	@Cacheable(value="User")
 	public User findUser(String userName){
 		User user = new User();
 		user.setUsername(userName);
+//		System.err.println("finding user.......");
 		user = iUserDao.findUser(user);
 		if(user == null){
 			return null;
@@ -86,9 +93,8 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
+	@CacheEvict(value="User", allEntries=true)
 	public boolean updateUser(User user) {
-		
-		
 		return iUserDao.updateUser(user);
 	}
 

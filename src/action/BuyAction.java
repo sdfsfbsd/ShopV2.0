@@ -121,7 +121,7 @@ public class BuyAction extends ActionSupport {
 				}
 			}
 
-			if (guessPrice.endsWith(c.getCommPrice())) {
+			if (guessPrice.equals(c.getHashKey())) {
 				System.out.println("LOG：猜中");
 				//随机生成一个订单号
 				String buffer = new Date().getTime() + "";
@@ -142,11 +142,14 @@ public class BuyAction extends ActionSupport {
 				c.setIsSold(true);
 				//更新数据库
 				iCommodityService.updateCommodity(c);
+				actionContext.getSession().put("User", user);
+				iUserService.updateUser(user);
+				return SUCCESS;
 			}
 			
 			actionContext.getSession().put("User", user);
 			iUserService.updateUser(user);
-			return SUCCESS;
+			return "wrong";
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

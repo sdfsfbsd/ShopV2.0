@@ -57,28 +57,40 @@ body {
 
 	function StartLotery() {
 		var price = document.getElementById("guessPrice");
-		var cPrice = document.getElementById("commodityPrice");
+
+		var cId = document.getElementById("commodityiHashKey");
 		var userBalance = document.getElementById("userBalance");
+		var isSold = document.getElementById("isSold");
 		//alert("开始调用dwr进行登录校验");
 		/* 下面一行实际上是没有意义的 */
 
-		dwrUtil.guessPrice(price.value, cPrice.value, callback);
+		dwrUtil.guessPrice(price.value, cId.value, callback);
 
-		if (Number(userBalance.value) < 1) {
-			alert("余额不足！");
-		} else {
-			function callback(result) {
-				if (result == true) {
-					document.getElementById("priceForm").submit();
-					alert("成功猜中商品！");
-				} else {
-					document.getElementById("priceForm").submit();
-					alert("错误，再试试吧？");
+		if (isSold.value = 0) {
+			if (Number(userBalance.value) < 1) {
+				alert("余额不足！");
+			} else {
+				function callback(result) {
+					if (result == true) {
+						document.getElementById("priceForm").submit();
+						alert("成功猜中商品！");
+					} else {
+						document.getElementById("priceForm").submit();
+						alert("错误，再试试吧？");
+					}
 				}
 			}
+		} else {
+			alert("晚了一步！商品已经被抢走啦");
 		}
+	}
 
-
+	function LoginCheck() {
+		var user = document.getElementById("user");
+		if (user.value == "") {
+			alert("清先登录！");
+			window.location.href = "${pageContext.request.contextPath}";
+		}
 	}
 </script>
 </head>
@@ -107,14 +119,31 @@ body {
 												<s:property value="#session.User.getBalance()" />
 												元
 											</h4>
-											<input id="userBalance" type="hidden" name=""
-												userBalance""
-											value='<s:property value="#session.User.getBalance()"/>'>
+											<input id="commodityiHashKey" type="hidden"
+												name="commodityiHashKey"
+												value='<s:property value="#session.item.getHashKey()"/>'>
+											<input id="user" type="hidden" name="user"
+												value='<s:property value="#session.User"/>'>
+											<input id="isSold" type="hidden" name="isSold"
+												value='<s:property value="#session.item.getIsSold()"/>'>
+											<input id="userBalance" type="hidden"
+												name="
+												userBalance"
+												value="<s:property value="#session.User.getBalance()"/>">
 
 										</div>
 										<div class="col-md-12 column" style="padding-bottom: 10px">
+											<h4 style="color: red"
+												class="col-sm-5 control-label text-info">
+												范围：
+												<s:property value="#session.item.getLowerLimit()" />
+												~
+												<s:property value="#session.item.getUpperLimit()" />
+											</h4>
+										</div>
+										<div class="col-md-12 column" style="padding-bottom: 10px">
 											<label for="guessPrice"
-												class="col-sm-3 control-label text-info">竞猜金额</label>
+												class="col-sm-3 control-label text-info">竞猜数字</label>
 											<div class="col-sm-9">
 												<input type="text" class="form-control" id="guessPrice"
 													name="guessPrice" style="width: 400px" />
@@ -201,8 +230,7 @@ body {
 				<h2>
 					<s:property value="#session.item.getCommName()" />
 				</h2>
-				<input id="commodityPrice" type="hidden" name="commodityPrice"
-					value='<s:property value="#session.item.getCommPrice()"/>'>
+
 				<br />
 				<h3>
 					数量：
@@ -240,7 +268,7 @@ body {
 				</script>
 
 				<br /> <a id="modal-951502" href="#modal-container-951502"
-					role="button" class="btn btn-default" data-toggle="modal">立即开抢</a>
+					role="button" class="btn btn-default" data-toggle="modal" onclick="LoginCheck()">立即开抢</a>
 			</div>
 		</div>
 		<div class="row clearfix" style="background-color: white; ">

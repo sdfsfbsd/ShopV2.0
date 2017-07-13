@@ -90,5 +90,29 @@ public class LoginAction extends ActionSupport {
 	public LoginAction() {
 		super();
 	}
+	
+	public String test() {
+		
+		try {
+			System.out.println("第一个user。。。");
+			User user = userService.findUser("admin");
+			System.out.println("user:" + user.toString() +" " + user.getPassword());
+			System.out.println("第二个user。。。");
+			User user2 = userService.findUser("admin");
+			System.out.println("user2:" + user2.toString()+" " + user2.getPassword());
+			System.out.println("更新User。。。。");
+			user.setPassword("124");
+			userService.updateUser(user);
+			System.out.println("第三个user。。。");
+			User user3 = userService.findUser("admin");
+			System.out.println("user3:" + user3.getPassword());
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return ERROR;
+		}
+		
+	}
 
 }

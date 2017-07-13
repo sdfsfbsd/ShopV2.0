@@ -3,6 +3,8 @@ package service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import domain.User;
 
 /**
@@ -12,7 +14,6 @@ import domain.User;
  * @modify BUPT
  *
  */
-
 public interface IUserService {
 	public User findUser(String userName, String password);
 	public User findUser(String userName);

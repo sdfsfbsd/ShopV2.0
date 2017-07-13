@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.ServletActionContext;
 
+import domain.Commodity;
 import service.ICommodityService;
 import service.IOrderService;
 import service.IUserService;
@@ -34,6 +35,30 @@ public class DwrUtil {
 	private IOrderService orderService;
 	
 	
+	public IUserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
+
+	public ICommodityService getCommodityService() {
+		return commodityService;
+	}
+
+	public void setCommodityService(ICommodityService commodityService) {
+		this.commodityService = commodityService;
+	}
+
+	public IOrderService getOrderService() {
+		return orderService;
+	}
+
+	public void setOrderService(IOrderService orderService) {
+		this.orderService = orderService;
+	}
+
 	/**
 	 * 
 	 * @param userName
@@ -158,10 +183,9 @@ public class DwrUtil {
 	}
 	
 	
-	public boolean guessPrice(String price,String commdityPrice){
+	public boolean guessPrice(String price,String hashKey){
 		System.out.println("开始检验猜价是否相等");
-		
-		if (price.endsWith(commdityPrice)){
+		if (price.equals(hashKey)){
 			System.out.println("相同");
 			return true;
 		}

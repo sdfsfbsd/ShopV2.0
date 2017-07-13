@@ -165,7 +165,7 @@ body {
 								<a href="${pageContext.request.contextPath}/jsp/myGuess.jsp">我发布的竞猜</a>
 							</div>
 							<div class="panel-body">
-								<a href="myshop.jsp">我已抢到的宝贝</a>
+								<a href="${pageContext.request.contextPath}/jsp/myPurchase.jsp">我已抢到的宝贝</a>
 							</div>
 						</div>
 					</div>

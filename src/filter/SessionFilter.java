@@ -39,7 +39,7 @@ public class SessionFilter implements Filter {
 				System.out.println("*****校验到session失效*****");
 				response.sendRedirect("/ShopV2.0");
 			} else {
-				User user = (User) session.getAttribute("user");
+				User user = (User) session.getAttribute("User");
 				if (user == null) {
 					System.out.println("*****校验到用户未登录*****");
 					response.sendRedirect("/ShopV2.0");
