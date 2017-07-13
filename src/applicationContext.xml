@@ -25,12 +25,9 @@
 	<!-- 自动扫描Spring注解配置 -->
 	<context:component-scan base-package="service" />
 	<context:component-scan base-package="dao" />
+
 	<context:component-scan base-package="interceptor" />
-	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
-		<property name="url" value="jdbc:mysql://localhost:3306/shop"></property> 
-		<property name="username" value="root"></property> <property name="password" 
-		value="root"></property> <property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
-		</bean> -->
+
 	<context:component-scan base-package="com.interceptor" />
 
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
@@ -50,7 +47,7 @@
 
 
 
-	<!-- 配置数据源：方法一，使用C3P0方式 -->
+	<!-- 使用C3P0连接池  -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shop"></property>
 		<property name="user" value="root"></property>
