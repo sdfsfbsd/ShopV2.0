@@ -3,3 +3,7 @@
 /dao/
 /service/
 /domain/
+/filter/
+/interceptor/
+/test/
+/util/
